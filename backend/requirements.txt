@@ -1,13 +1,14 @@
-fastapi
-uvicorn
-sqlalchemy
-pymysql
-python-dotenv
-langchain
-langchain-core
-langchain-community
-langchain-google-genai
-google-generativeai
-requests
-beautifulsoup4
-pydantic
+fastapi==0.115.2
+uvicorn==0.30.1
+sqlalchemy==2.0.32
+pymysql==1.1.1
+python-dotenv==1.0.1
+requests==2.32.3
+beautifulsoup4==4.12.3
+
+# AI + LangChain versions that work
+langchain==0.3.0
+langchain-core==0.3.0
+langchain-community==0.3.0
+langchain-google-genai==1.0.4
+google-generativeai==0.7.2
