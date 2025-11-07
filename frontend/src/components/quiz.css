@@ -1,0 +1,165 @@
+/* 🌟 Global Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f0f4ff, #f9fafb);
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+}
+
+/* Quiz Card */
+.quiz-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 800px;
+  animation: fadeIn 0.4s ease both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Question */
+.question-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+/* Options Container */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Buttons */
+.option-btn {
+  background: #f1f5f9;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+  background-color: #e2e8f0;
+  transform: scale(1.02);
+  border-color: #64748b;
+}
+
+/* ✅ Correct Option */
+.correct1 {
+  background-color: #22c55e !important;
+  border-color: #16a34a !important;
+  color: #fff !important;
+  animation: pulse 0.4s ease;
+}
+
+/* ❌ Wrong Option */
+.wrong1 {
+  background-color: #ef4444 !important;
+  border-color: #dc2626 !important;
+  color: #fff !important;
+  animation: shake 0.4s ease;
+}
+
+/* Disabled (Other Options) */
+.disabled1 {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Answer Section */
+.answer-section {
+  background: #f9fafb;
+  border-left: 5px solid #2563eb;
+  padding: 1rem;
+  margin-top: 1.2rem;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease;
+}
+
+.answer {
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.explanation {
+  font-style: italic;
+  color: #475569;
+  margin-top: 0.5rem;
+}
+
+.difficulty {
+  color: #64748b;
+  margin-top: 0.3rem;
+}
+
+/* 🌈 Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quiz-card {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .question-title {
+    font-size: 1.1rem;
+  }
+
+  .option-btn {
+    font-size: 0.95rem;
+  }
+}
