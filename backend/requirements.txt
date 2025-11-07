@@ -2,10 +2,11 @@ fastapi
 uvicorn[standard]
 sqlalchemy
 pymysql
-requests
-beautifulsoup4
-pydantic
 python-dotenv
+beautifulsoup4
+requests
+langchain
 langchain-core
 langchain-community
 langchain-google-genai
+pydantic
