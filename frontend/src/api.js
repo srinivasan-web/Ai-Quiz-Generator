@@ -1,5 +1,5 @@
 // src/api.js
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://ai-quiz-generator-1-h6me.onrender.com";
 
 export async function generateQuiz(url) {
   const response = await fetch(`${API_BASE}/generate_quiz`, {
