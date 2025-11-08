@@ -16,6 +16,7 @@ const Loader = ({
   message = "Processing...",
   type = "clip",
   time = "seconds",
+  
 }) => {
   const color = "#d400ffff"; // Tailwind Blue-600
   const size = 70;

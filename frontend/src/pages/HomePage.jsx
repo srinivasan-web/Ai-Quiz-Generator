@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import {
   FaCircleNotch,
   FaHeartbeat,
@@ -15,18 +16,18 @@ import "./index.css";
 export default function HomePage() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
-  const [loaderType, setLoaderType] = useState("pacman"); // 👈 Choose any loader type
+  const [loaderType, setLoaderType] = useState("pacman"); 
 
   const navigate = useNavigate();
 
   const handleGenerate = async () => {
-    if (!url) return alert("Enter a Wikipedia URL!");
+    if (!url) return toast.warning("Please check your input!");
     setLoading(true);
     try {
       const data = await generateQuiz(url);
       navigate(`/quiz/${data.id}`, { state: { quiz: data } });
     } catch (err) {
-      alert("Error generating quiz: " + err.message);
+      console.log("error")
     } finally {
       setLoading(false);
     }

@@ -1,6 +1,6 @@
-// src/App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import HomePage from "./pages/HomePage";
 import QuizPage from "./pages/QuizPage";
@@ -16,18 +16,16 @@ function App() {
         <Route path="/history" element={<HistoryPage />} />
       </Routes>
 
-      {/* Toast Notifications */}
       <ToastContainer
-        position="top-right"
-        autoClose={3000} // closes after 3 seconds
+        position="bottom-right"
+        autoClose={3000}
         hideProgressBar={false}
-        newestOnTop={false}
+        newestOnTop
         closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored"
+        theme=""
+        transition={Bounce}
       />
     </BrowserRouter>
   );
