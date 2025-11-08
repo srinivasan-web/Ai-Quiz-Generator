@@ -8,17 +8,6 @@ body {
   padding: 0;
 }
 
-/* QUIZ LIST CONTAINER */
-.quiz-list {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* QUIZ CARD */
 
 @keyframes ripple {
   to {

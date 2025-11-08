@@ -1,5 +1,7 @@
-* {
+html {
+  scroll-behavior: smooth;
 }
+
 body {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(120deg, #e3f2fd, #ffffff);
@@ -115,7 +117,7 @@ body {
 
 .links a {
   position: relative;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 600;
   color: white;
   text-decoration: none;
@@ -142,6 +144,7 @@ body {
 /* Hover color change */
 .links a:hover {
   color: #fa15fa;
+ 
 }
 
 /* Active link (clicked) */

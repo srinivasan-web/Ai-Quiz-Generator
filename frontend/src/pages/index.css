@@ -1,4 +1,9 @@
 /* 🔹 GLOBAL RESET & BASE */
+
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -401,7 +406,7 @@ table {
 .heading1 {
   font-size: 3rem;
   font-weight: 800;
-  background: linear-gradient(90deg, #7b2ff7, #b307f1, #f724db);
+  background: linear-gradient(90deg, #6303ff, #ce07f1, #b824f7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -410,27 +415,147 @@ table {
   animation: slideDown 0.8s ease-out;
   text-align: center;
 }
-.para-summary {
-  background-color: #bacce0;
-  color: rgb(249, 240, 240);
+
+/* ------------------------------------------- quiz page----------------------------------------------------------*/
+
+/* 🌈 Global Design Setup */
+
+/* 💬 Summary Card */
+.summary-card {
+  background: rgb(129, 72, 253);
+  padding: 40px;
+  margin-top: 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  gap: 2px;
   font-size: 25px;
-  font-weight: bold;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  padding: 20px;
-  border-radius: 20px;
+
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.2);
+  transition: all 0.3s ease;
 }
+.head{
+  border: 2px solid rgb(255, 255, 255);
+  display: inline;
+ 
+}
+
 .summary {
-  color: #fffdff;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  margin-top: 25px;
+  gap: 50px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.quiz-para{
+  text-align: center;
+}
+/* 🗝️ Entities + Topics List */
+.topics-related {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.entities,
+.topics {
+  padding: 40px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  transition: 0.3s ease;
+}
+.entities h3,
+.topics h3 {
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #571cf8;
   font-size: 30px;
   font-weight: bold;
-  font-style: italic;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-top: 0px;
-  background-color: #651dd8;
-  display: inline-block;
-  padding: 20px;
-  border-radius: 20px;
+  border: 2px solid rgb(166, 0, 255);
+  width: 500px;
+  text-align: center;
+}
+.inner{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: 40px;
+}
+.related{
+ 
+}
+.entities ul li,
+.topics ul li {
+  margin: 8px 0;
+  font-size: 25px;
+  list-style-type: "✨ ";
+  color: #9300f5;
+  transition: 0.3s;
+  font-weight: bold;
+
+}
+.entities ul li:hover,
+.topics ul li:hover {
+  color: #ff0099;
+  transform: translateX(5px);
+}
+
+/* 🔘 Button Styling */
+.generate-new {
+  background: linear-gradient(45deg, #00e0ff, #ffcc70);
+  border: none;
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.generate-new:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* 🌟 Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+.animate-slideUp {
+  animation: slideUp 1.2s ease-out forwards;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .quiz-page {
+    margin: 20px;
+    padding: 20px;
+  }
+  .heading1 {
+    font-size: 1.5rem;
+  }
+  .generate-new {
+    width: 100%;
+  }
 }

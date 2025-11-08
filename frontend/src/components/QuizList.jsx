@@ -1,6 +1,6 @@
 // src/components/QuizList.jsx
 import React from "react";
-import QuizCard from "./QuizCard";
+import QuizCard from "./QuizCard/QuizCard";
 import "./index.css";
 
 const QuizList = ({ quiz }) => {

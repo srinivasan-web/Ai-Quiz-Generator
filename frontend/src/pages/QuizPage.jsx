@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { data, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import QuizList from "../components/QuizList";
-
 import { getQuizById } from "../api";
-import Loader from "../components/Loader"; // ✅ Import loader
+import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
+import "./index.css";
 
 const QuizPage = () => {
   const location = useLocation();
@@ -14,14 +14,12 @@ const QuizPage = () => {
   const [loaderType, setLoaderType] = useState("pacman");
   const [quizData, setQuizData] = useState(location.state?.quiz || null);
   const [loading, setLoading] = useState(false);
-  console.log(quizData);
 
   useEffect(() => {
     if (!quizData && id) {
       setLoading(true);
       getQuizById(id)
         .then((data) => setQuizData(data))
-
         .catch((err) => {
           console.error("Error fetching quiz:", err);
           toast.error("Something went wrong ❌");
@@ -37,16 +35,13 @@ const QuizPage = () => {
         time="This may take 10-30 seconds"
         type={loaderType}
       />
-    ); // ✅
+    );
 
   if (!quizData) {
     return (
       <div className="text-center mt-10">
         <p className="text-gray-600">Quiz not loaded. Go back and try again.</p>
-        <button
-          onClick={() => navigate("/")}
-          className="mt-3 bg-blue-600 text-white px-4 py-2 rounded-lg"
-        >
+        <button onClick={() => navigate("/")} className="generate-new">
           ⬅ Back
         </button>
       </div>
@@ -54,32 +49,39 @@ const QuizPage = () => {
   }
 
   return (
-    <div className="nav">
+    <div className="quiz-page">
       <Navbar />
-      <h2 className="heading1 text-center mb-4">
+      <h2 className="heading1 animate-fadeIn">
         🧠 {quizData.title || "Generated Quiz"}
       </h2>
-      <p className="summary text-center mb-8">
-        <strong>📖 Summary:</strong>
-        <br />
-      </p>
-      <p className="para-summary">
-        {quizData.summary || "Explore the quiz below!"}
-      </p>
-
-      <div>
-        {quizData.key_entities.map((each) => (
-          <h4 key={each.id}>{each}</h4>
-        ))}
-      </div>
-      <div>
-        {quizData.related_topics.map((each) => (
-          <h1 key={each.id}>{each}</h1>
-        ))}
+      <p className="quiz-para">Generate Quiz, Related Topics , Key Entities based on the your wikipedia url </p>
+      <div className="summary-card animate-slideUp">
+        <h3 className="head"> 📖 Summary</h3>
+        <p className="summary">
+          {quizData.summary || "Explore the quiz below!"}
+        </p>
       </div>
 
+      <div className="topics-related">
+        <div className="entities animate-fadeIn">
+          <h3>🔑 Key Entities</h3>
+          <ul className="inner">
+            {quizData.key_entities?.map((each, i) => (
+              <li key={i}>{each}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="topics animate-fadeIn related">
+          <h3>📚 Related Topics</h3>
+          <ul className="inner">
+            {quizData.related_topics?.map((each, i) => (
+              <li key={i}>{each}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
       <QuizList quiz={quizData.quiz || []} />
-
       <div className="text-center mt-6">
         <button onClick={() => navigate("/")} className="generate-new">
           🔄 Generate New Quiz
