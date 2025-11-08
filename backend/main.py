@@ -5,36 +5,29 @@ from datetime import datetime
 from database import SessionLocal, init_db, Quiz
 from scraper import scrape_wikipedia
 from llm_quiz_generator import generate_quiz_from_text
-import json, os
-from dotenv import load_dotenv
+import json
 
-# ✅ Load environment variables
-load_dotenv()
-
-# ✅ Initialize database
 init_db()
 
 app = FastAPI(title="AI Wiki Quiz Generator")
 
-# ✅ Setup CORS properly
-# Split the FRONTEND_ORIGINS string into a list (Render reads it as a single string)
-frontend_origins = os.getenv("FRONTEND_ORIGINS", "")
-origins = [origin.strip() for origin in frontend_origins.split(",") if origin.strip()]
+# ✅ TEMP FIX: Hardcode frontend URLs
+origins = [
+    "https://ai-quiz-generator-lake-two.vercel.app",
+    "http://localhost:5173"
+]
 
-# ✅ Add CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins if origins else ["*"],  # fallback for safety
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ✅ Models
 class WikiRequest(BaseModel):
     url: str
 
-# ✅ Routes
 @app.get("/")
 def home():
     return {"message": "✅ Backend running successfully"}
@@ -57,7 +50,6 @@ def generate_quiz_api(req: WikiRequest):
         db.add(quiz_entry)
         db.commit()
         db.refresh(quiz_entry)
-
         return {"id": quiz_entry.id, "title": title, **quiz_data}
 
     except Exception as e:
