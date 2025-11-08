@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { data, useLocation, useNavigate, useParams } from "react-router-dom";
 import QuizList from "../components/QuizList";
 
@@ -22,7 +23,7 @@ const QuizPage = () => {
 
         .catch((err) => {
           console.error("Error fetching quiz:", err);
-          alert("Failed to load quiz!");
+          toast.error(`Failed to load data ❌: ${error.message}`);
         })
         .finally(() => setLoading(false));
     }
