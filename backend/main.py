@@ -8,22 +8,33 @@ from llm_quiz_generator import generate_quiz_from_text
 import json, os
 from dotenv import load_dotenv
 
+# ✅ Load environment variables
 load_dotenv()
+
+# ✅ Initialize database
 init_db()
 
 app = FastAPI(title="AI Wiki Quiz Generator")
 
+# ✅ Setup CORS properly
+# Split the FRONTEND_ORIGINS string into a list (Render reads it as a single string)
+frontend_origins = os.getenv("FRONTEND_ORIGINS", "")
+origins = [origin.strip() for origin in frontend_origins.split(",") if origin.strip()]
+
+# ✅ Add CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("FRONTEND_ORIGINS")],
+    allow_origins=origins if origins else ["*"],  # fallback for safety
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# ✅ Models
 class WikiRequest(BaseModel):
     url: str
 
+# ✅ Routes
 @app.get("/")
 def home():
     return {"message": "✅ Backend running successfully"}
@@ -57,8 +68,6 @@ def generate_quiz_api(req: WikiRequest):
 @app.get("/history")
 def get_history():
     db = SessionLocal()
-
-    
     data = db.query(Quiz).all()
     db.close()
     return [
