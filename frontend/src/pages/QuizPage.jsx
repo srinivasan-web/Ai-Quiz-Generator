@@ -14,6 +14,7 @@ const QuizPage = () => {
   const [loaderType, setLoaderType] = useState("pacman");
   const [quizData, setQuizData] = useState(location.state?.quiz || null);
   const [loading, setLoading] = useState(false);
+  console.log(quizData);
 
   useEffect(() => {
     if (!quizData && id) {
@@ -65,6 +66,17 @@ const QuizPage = () => {
       <p className="para-summary">
         {quizData.summary || "Explore the quiz below!"}
       </p>
+
+      <div>
+        {quizData.key_entities.map((each) => (
+          <h4 key={each.id}>{each}</h4>
+        ))}
+      </div>
+      <div>
+        {quizData.related_topics.map((each) => (
+          <h1 key={each.id}>{each}</h1>
+        ))}
+      </div>
 
       <QuizList quiz={quizData.quiz || []} />
 

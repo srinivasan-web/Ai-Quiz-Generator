@@ -40,7 +40,8 @@ Read the following Wikipedia article titled "{title}" and produce a quiz summary
       "difficulty": "easy | medium | hard"
     }}
   ],
-  "related_topics": ["topic1", "topic2"]
+  "related_topics": ["topic1", "topic2"],
+  "real_World_example" :["example1","example2]
 }}
 
 Article:
@@ -81,5 +82,6 @@ Article:
                 "difficulty": "easy"
             }
         ],
-        "related_topics": []
+        "related_topics": [],
+        "real_World_example":[]
     }
