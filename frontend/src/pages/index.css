@@ -559,3 +559,12 @@ table {
     width: 100%;
   }
 }
+.quiz-para{
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  color: #a41ad2;
+  text-shadow: #6b7280;
+  
+}
