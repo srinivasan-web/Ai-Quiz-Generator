@@ -5,10 +5,7 @@ pymysql==1.1.1
 python-dotenv==1.0.1
 requests==2.32.3
 beautifulsoup4==4.12.3
-
-# AI + LangChain versions that work
-langchain==0.3.0
-langchain-core==0.3.0
-langchain-community==0.3.0
-langchain-google-genai==1.0.4
-google-generativeai==0.5.2
+langchain==0.2.16
+langchain-core==0.2.38
+langchain-community==0.2.13
+langchain-google-genai==1.0.9
