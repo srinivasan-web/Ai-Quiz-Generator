@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import { FaArrowRight } from "react-icons/fa";
+import { useClerk, useSignUp, UserButton, useUser } from "@clerk/clerk-react";
+import "./index.css";
 
 const Navbar = () => {
   const location = useLocation();
   const [active, setActive] = useState(location.pathname);
+  const { user } = useUser();
+  const { openSignIn } = useClerk();
 
   const handleActive = (path) => setActive(path);
 
@@ -27,6 +31,14 @@ const Navbar = () => {
         >
           History
         </Link>
+
+        {user ? (
+          <UserButton />
+        ) : (
+          <button className="user-button " onClick={() => openSignIn()}>
+            Sign Up <FaArrowRight />{" "}
+          </button>
+        )}
       </div>
     </nav>
   );

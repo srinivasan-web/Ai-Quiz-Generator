@@ -218,3 +218,26 @@ body {
 }
 
 /* ----------------------------------------------- changeed -----------------------------*/
+
+.user-button {
+  background-color: #f8f7fa;
+  color: #590ba6;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+ font-weight: bold;
+  gap: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.user-button:hover {
+  background-color: #9e09e8;
+  box-shadow: 0 4px 12px rgba(122, 53, 176, 0.2);
+  color: #ffffff;
+  font-style: italic;
+}
