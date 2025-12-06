@@ -304,4 +304,170 @@ Use via langchain-google-genai.
 
 
 
-i
+i/* Main container */
+.auth-container {
+  position: relative;
+  width: 100%;
+
+  height: 100vh;
+  background: radial-gradient(circle at top, #0b0f2e, #050712 90%);
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 3D floating shapes */
+.floating-3d-shape {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: linear-gradient(135deg, #5b5fff, #9f4bff);
+  filter: blur(60px);
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite;
+  transform: translateZ(-200px) rotateX(45deg);
+  opacity: 0.5;
+}
+
+.floating-3d-shape.two {
+  width: 420px;
+  height: 420px;
+  background: linear-gradient(135deg, #ff5bd8, #ff884b);
+  top: 50%;
+  left: 60%;
+  animation-duration: 14s;
+  opacity: 0.4;
+}
+
+/* Animation for floating effect */
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px) translateZ(-200px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-60px) translateX(40px) translateZ(-200px)
+      rotate(20deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) translateZ(-200px) rotate(0deg);
+  }
+}
+
+/* Card */
+.auth-card {
+  width: 500px;
+  padding: 28px;
+
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+  color: white;
+  box-shadow: 0 0 30px rgba(20, 20, 60, 0.4);
+  animation: cardFade 1.2s ease;
+}
+
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Title + subtitle */
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+.subtitle {
+  font-size: 14px;
+  text-align: center;
+  color: #d5d7ff;
+  margin-bottom: 20px;
+}
+
+/* Toggle box */
+.toggle-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.toggle-btn {
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.toggle-btn.active {
+  background: white;
+  color: #111;
+  font-weight: 600;
+}
+
+/* Fade animation */
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Clerk form override */
+.cl-card {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.cl-input {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+}
+
+.cl-button {
+  background: #7b2ff7 !important;
+  border: none !important;
+  color: rgb(255, 255, 255) !important;
+  border-radius: 30px !important;
+  transition: 0.3s;
+}
+
+.cl-button:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-card {
+    width: 92%;
+    padding: 18px;
+  }
+}
+

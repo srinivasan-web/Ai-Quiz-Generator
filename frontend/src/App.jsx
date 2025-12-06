@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Login from "./pages/login";
 import HomePage from "./pages/HomePage";
 import QuizPage from "./pages/QuizPage";
 import HistoryPage from "./pages/HistoryPage";
@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/quiz/:id" element={<QuizPage />} />
         <Route path="/history" element={<HistoryPage />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
 
       <ToastContainer
